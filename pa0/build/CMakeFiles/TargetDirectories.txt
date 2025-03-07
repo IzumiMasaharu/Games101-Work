@@ -1,0 +1,3 @@
+/Users/izumi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/GAMES 101/pa0/build/CMakeFiles/Transformation.dir
+/Users/izumi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/GAMES 101/pa0/build/CMakeFiles/edit_cache.dir
+/Users/izumi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/GAMES 101/pa0/build/CMakeFiles/rebuild_cache.dir
