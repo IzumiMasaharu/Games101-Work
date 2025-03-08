@@ -277,6 +277,19 @@ Eigen::Vector3f displacement_fragment_shader(const fragment_shader_payload& payl
     {
         // TODO: For each light source in the code, calculate what the *ambient*, *diffuse*, and *specular* 
         // components are. Then, accumulate that result on the *result_color* object.
+        auto vectorToLight = light.position - point;
+        auto distaceLightToPoint = vectorToLight.norm();
+        vectorToLight.normalize();
+        auto vectorToEye = eye_pos - point;
+        vectorToEye.normalize();
+        auto halfVector = vectorToLight + vectorToEye;
+        halfVector.normalize();
+        // TODO: For each light source in the code, calculate what the *ambient*, *diffuse*, and *specular* 
+        // components are. Then, accumulate that result on the *result_color* object.
+        auto amb_light = ka.cwiseProduct(amb_light_intensity);
+        auto light_intensity = kd.cwiseProduct((light.intensity / (distaceLightToPoint * distaceLightToPoint)) * std::max(0.0f, normal.dot(vectorToLight)));
+        auto highLight = ks.cwiseProduct((light.intensity / (distaceLightToPoint * distaceLightToPoint)) * std::pow(std::max(0.0f, normal.dot(halfVector)), p));
+        result_color += amb_light + light_intensity + highLight;
     }
 
     return result_color * 255.f;
