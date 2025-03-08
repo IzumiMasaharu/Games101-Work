@@ -48,10 +48,6 @@ Eigen::Matrix4f get_projection_matrix(float eye_fov, float aspect_ratio, float z
                       0, 0, zNear + zFar, -zNear * zFar,
                       0, 0, 1, 0;
 
-    // TODO: Implement this function
-    // Create the projection matrix for the given parameters.
-    // Then return it.
-
     projection = ortho * persp_to_ortho * projection;
 
     return projection;

@@ -63,3 +63,16 @@ void Triangle::setColors(const std::array<Vector3f, 3>& colors)
     setColor(1, colors[1][0], colors[1][1], colors[1][2]);
     setColor(2, colors[2][0], colors[2][1], colors[2][2]);
 }
+
+Vector3f Triangle::getColor() const
+{
+    return (color[0] + color[1] + color[2]) / 3;
+}
+Vector2f Triangle::getTexCoord() const
+{
+    return (tex_coords[0] + tex_coords[1]) / 3;
+}
+Vector3f Triangle::getNormal() const
+{
+    return (normal[0] + normal[1] + normal[2]) / 3;
+}
