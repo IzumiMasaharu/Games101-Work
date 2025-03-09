@@ -5,7 +5,7 @@
 #ifndef RASTERIZER_TRIANGLE_H
 #define RASTERIZER_TRIANGLE_H
 
-#include <eigen3/Eigen/Eigen>
+#include <Eigen/Eigen>
 #include "Texture.hpp"
 
 using namespace Eigen;
@@ -33,9 +33,6 @@ public:
     void setColors(const std::array<Vector3f, 3>& colors);
     void setTexCoord(int ind,Vector2f uv ); /*set i-th vertex texture coordinate*/
 
-    Vector3f getColor() const;
-    Vector2f getTexCoord() const;
-    Vector3f getNormal() const;
     std::array<Vector4f, 3> toVector4() const;
 };
 
