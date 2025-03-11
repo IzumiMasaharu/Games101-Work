@@ -2,11 +2,11 @@
 // Created by goksu on 4/6/19.
 //
 
+#include <iostream>
 #include <algorithm>
 #include "rasterizer.hpp"
 #include <opencv2/opencv.hpp>
 #include <math.h>
-
 
 rst::pos_buf_id rst::rasterizer::load_positions(const std::vector<Eigen::Vector3f> &positions)
 {
@@ -259,64 +259,60 @@ static Eigen::Vector2f interpolate(float alpha, float beta, float gamma, const E
 //Screen space rasterization
 void rst::rasterizer::rasterize_triangle(const Triangle& t, const std::array<Eigen::Vector3f, 3>& view_pos) 
 {
-    // TODO: From your HW3, get the triangle rasterization code.
-    // TODO: Inside your rasterization loop:
-    //    * v[i].w() is the vertex view space depth value z.
-    //    * Z is interpolated view space depth for the current pixel
-    //    * zp is depth between zNear and zFar, used for z-buffer
-
-    // float Z = 1.0 / (alpha / v[0].w() + beta / v[1].w() + gamma / v[2].w());
-    // float zp = alpha * v[0].z() / v[0].w() + beta * v[1].z() / v[1].w() + gamma * v[2].z() / v[2].w();
-    // zp *= Z;
-
-    // TODO: Interpolate the attributes:
-    // auto interpolated_color
-    // auto interpolated_normal
-    // auto interpolated_texcoords
-    // auto interpolated_shadingcoords
-
-    // Use: fragment_shader_payload payload( interpolated_color, interpolated_normal.normalized(), interpolated_texcoords, texture ? &*texture : nullptr);
-    // Use: payload.view_pos = interpolated_shadingcoords;
-    // Use: Instead of passing the triangle's color directly to the frame buffer, pass the color to the shaders first to get the final color;
-    // Use: auto pixel_color = fragment_shader(payload);
-
     auto v = t.toVector4();
 
-    float x_min = std::min(v[0].x(), std::min(v[1].x(), v[2].x()));
-    float x_max = std::max(v[0].x(), std::max(v[1].x(), v[2].x()));
-    float y_min = std::min(v[0].y(), std::min(v[1].y(), v[2].y()));
-    float y_max = std::max(v[0].y(), std::max(v[1].y(), v[2].y()));
+    // 适当舍入浮点边界
+    int x_min = std::floor(std::min(v[0].x(), std::min(v[1].x(), v[2].x())));
+    int x_max = std::ceil(std::max(v[0].x(), std::max(v[1].x(), v[2].x())));
+    int y_min = std::floor(std::min(v[0].y(), std::min(v[1].y(), v[2].y())));
+    int y_max = std::ceil(std::max(v[0].y(), std::max(v[1].y(), v[2].y())));
 
-    for(int x = x_min; x <= x_max; x++)
+    // 确保边界在有效范围内
+    x_min = std::max(0, x_min);
+    y_min = std::max(0, y_min);
+    x_max = std::min(width - 1, x_max);
+    y_max = std::min(height - 1, y_max);
+
+    for(int x = std::floor(x_min); x <= std::ceil(x_max); x++)
     {
-        for(int y = y_min; y <= y_max; y++)
+        for(int y = std::floor(y_min); y <= std::ceil(y_max); y++)
         {
-            if(insideTriangle(x, y, v))
+            if(insideTriangle(x, y, t.v)) 
             {
-                auto[alpha, beta, gamma] = computeBarycentric2D(x, y, v);
+                auto[alpha, beta, gamma] = computeBarycentric2D(x, y, t.v);
 
-                //z插值
                 float Z = 1.0 / (alpha / v[0].w() + beta / v[1].w() + gamma / v[2].w());
                 float zp = alpha * v[0].z() / v[0].w() + beta * v[1].z() / v[1].w() + gamma * v[2].z() / v[2].w();
                 zp *= Z;
 
-                //插值颜色
-                auto interpolated_color = interpolate(alpha, beta, gamma, t.getColor()[0], t.getColor()[1], t.getColor()[2], 1.0f);
-                //插值法线
-                auto interpolated_normal = interpolate(alpha, beta, gamma, t.get[0], t.normal[1], t.normal[2], 1.0f);
-                //插值纹理坐标
-                auto interpolated_texcoords = interpolate(alpha, beta, gamma, t.getTexCoord()[0], t.getTexCoord()[1], t.getTexCoord()[2], 1.0f);
-                //插值视图坐标
-                auto interpolated_shadingcoords = interpolate(alpha, beta, gamma, view_pos[0], view_pos[1], view_pos[2], 1.0f);
+                int index = get_index(x, y);
+                if (index < 0 || index >= depth_buf.size()) {
+                    std::cerr << "Error: Depth buffer index out of range! Index = " << index << std::endl;
+                    continue;
+                }
 
-                fragment_shader_payload payload( interpolated_color, interpolated_normal.normalized(), interpolated_texcoords, texture ? &*texture : nullptr);
-                payload.view_pos = interpolated_shadingcoords;
-                auto pixel_color = this->fragment_shader(payload);
-                this->set_pixel(Vector2i(x, y), pixel_color);
+                if(zp < depth_buf[index])
+                {
+                    depth_buf[index] = zp;
+
+                    Eigen::Vector3f interpolated_color = interpolate(alpha, beta, gamma, t.color[0], t.color[1], t.color[2], 1.0f);
+                    Eigen::Vector3f interpolated_normal = interpolate(alpha, beta, gamma, t.normal[0], t.normal[1], t.normal[2], 1.0f);
+                    Eigen::Vector2f interpolated_texcoords = interpolate(alpha, beta, gamma, t.tex_coords[0], t.tex_coords[1], t.tex_coords[2], 1.0f);
+                    Eigen::Vector3f interpolated_shadingcoords = interpolate(alpha, beta, gamma, view_pos[0], view_pos[1], view_pos[2], 1.0f);
+                    
+                    fragment_shader_payload payload(interpolated_color, interpolated_normal.normalized(), interpolated_texcoords, texture ? &*texture : nullptr);
+                    payload.view_pos = interpolated_shadingcoords;
+                    Eigen::Vector3f pixel_color = fragment_shader(payload);
+                    // 在调用set_pixel之前：
+                    if (x >= 0 && x < width && y >= 0 && y < height)
+                        set_pixel(Eigen::Vector2i(x, y), pixel_color);
+                }
             }
         }
     }
+
 }
+
 
 void rst::rasterizer::set_model(const Eigen::Matrix4f& m)
 {
@@ -355,13 +351,23 @@ rst::rasterizer::rasterizer(int w, int h) : width(w), height(h)
 
 int rst::rasterizer::get_index(int x, int y)
 {
+    if (x < 0 || x >= width || y < 0 || y >= height)
+        std::cerr << "Error: get_index out of range! x=" << x << ", y=" << y << std::endl;
     return (height-y)*width + x;
 }
-
 void rst::rasterizer::set_pixel(const Vector2i &point, const Eigen::Vector3f &color)
 {
-    //old index: auto ind = point.y() + point.x() * width;
+    // 确保点在有效范围内
+    if (point.x() < 0 || point.x() >= width || point.y() < 0 || point.y() >= height) {
+        std::cerr << "Error: set_pixel coordinates out of range! x=" << point.x() << ", y=" << point.y() << std::endl;
+        return; // 如果坐标无效，直接返回
+    }
+
     int ind = (height-point.y())*width + point.x();
+    if (ind < 0 || ind >= frame_buf.size()) {
+        std::cerr << "Error: set_pixel out of range! index=" << ind << std::endl;
+        return; // 如果索引无效，直接返回
+    }
     frame_buf[ind] = color;
 }
 
