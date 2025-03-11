@@ -85,7 +85,11 @@
     "condition_variable": "cpp",
     "iomanip": "cpp",
     "mutex": "cpp",
-    "semaphore": "cpp"
+    "semaphore": "cpp",
+    "__hash_table": "cpp",
+    "__split_buffer": "cpp",
+    "bitset": "cpp",
+    "stack": "cpp"
   },
   "C_Cpp_Runner.cCompilerPath": "gcc",
   "C_Cpp_Runner.cppCompilerPath": "g++",
