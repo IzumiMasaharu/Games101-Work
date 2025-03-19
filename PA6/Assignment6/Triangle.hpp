@@ -199,9 +199,11 @@ public:
     Material* m;
 };
 
-inline bool Triangle::intersect(const Ray& ray) { return true; }
-inline bool Triangle::intersect(const Ray& ray, float& tnear,
-                                uint32_t& index) const
+inline bool Triangle::intersect(const Ray& ray) 
+{ 
+    return true; 
+}
+inline bool Triangle::intersect(const Ray& ray, float& tnear, uint32_t& index) const
 {
     return false;
 }
@@ -232,9 +234,25 @@ inline Intersection Triangle::getIntersection(Ray ray)
     t_tmp = dotProduct(e2, qvec) * det_inv;
 
     // TODO find ray triangle intersection
+    auto S = ray.origin - v0;
+    auto E1 = v1 - v0;
+    auto E2 = v2 - v0;
+    auto S1 = crossProduct(ray.direction, E2);
+    auto S2 = crossProduct(S, E1);
 
-
-
+    float S1E1 = dotProduct(S1, E1);
+    float t = dotProduct(S2, E2) / S1E1;
+    float b1 = dotProduct(S1, S) / S1E1;
+    float b2 = dotProduct(S2, ray.direction) / S1E1;
+    
+    if (t >= 0.f && b1 >= 0.f && b2 >= 0.f && (1 - b1 - b2) >= 0.f) {
+        inter.coords = Vector3f(ray.origin + ray.direction * t);
+        inter.distance = t;
+        inter.happened = true;
+        inter.obj = this;
+        inter.normal = normal;
+        inter.m = m;
+    }
 
     return inter;
 }
