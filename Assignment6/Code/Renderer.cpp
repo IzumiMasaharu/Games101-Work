@@ -24,7 +24,7 @@ void Renderer::Render(const Scene& scene)
     int m = 0;
     for (uint32_t j = 0; j < scene.height; ++j) {
         for (uint32_t i = 0; i < scene.width; ++i) {
-
+            
             // generate primary ray direction
             float x = (2 * (i + 0.5) / (float)scene.width - 1) * imageAspectRatio * scale;
             float y = (1 - 2 * (j + 0.5) / (float)scene.height) * scale; 

@@ -1,0 +1,3 @@
+/Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code/build/CMakeFiles/RayTracing.dir
+/Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code/build/CMakeFiles/edit_cache.dir
+/Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code/build/CMakeFiles/rebuild_cache.dir

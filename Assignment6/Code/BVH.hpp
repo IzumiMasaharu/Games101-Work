@@ -28,7 +28,7 @@ public:
     enum class SplitMethod { NAIVE, SAH };
 
     // BVHAccel Public Methods
-    BVHAccel(std::vector<Object*> p, int maxPrimsInNode = 1, SplitMethod splitMethod = SplitMethod::NAIVE);
+    BVHAccel(std::vector<Object*> p, int maxPrimsInNode = 1, SplitMethod splitMethod = SplitMethod::SAH);
     Bounds3 WorldBound() const;
     ~BVHAccel();
 
@@ -57,12 +57,10 @@ public:
     // BVHBuildNode Public Methods
     BVHBuildNode(){
         bounds = Bounds3();
-        left = nullptr;right = nullptr;
+        left = nullptr;
+        right = nullptr;
         object = nullptr;
     }
 };
-
-
-
 
 #endif //RAYTRACING_BVH_H
