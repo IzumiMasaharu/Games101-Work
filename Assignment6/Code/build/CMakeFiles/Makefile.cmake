@@ -114,7 +114,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/Applications/CMake.app/Contents/share/cmake-3.31/Modules/Platform/Linker/Apple-AppleClang-CXX.cmake"
   "/Applications/CMake.app/Contents/share/cmake-3.31/Modules/Platform/Linker/Apple-AppleClang.cmake"
   "/Applications/CMake.app/Contents/share/cmake-3.31/Modules/Platform/UnixPaths.cmake"
-  "/Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code/CMakeLists.txt"
+  "/Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment6/Code/CMakeLists.txt"
   "CMakeFiles/3.31.6/CMakeCCompiler.cmake"
   "CMakeFiles/3.31.6/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.31.6/CMakeSystem.cmake"

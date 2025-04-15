@@ -53,10 +53,10 @@ RM = /Applications/CMake.app/Contents/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code
+CMAKE_SOURCE_DIR = /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment6/Code
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code/build
+CMAKE_BINARY_DIR = /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment6/Code/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/RayTracing.dir/depend.make
@@ -73,74 +73,74 @@ CMakeFiles/RayTracing.dir/codegen:
 .PHONY : CMakeFiles/RayTracing.dir/codegen
 
 CMakeFiles/RayTracing.dir/main.cpp.o: CMakeFiles/RayTracing.dir/flags.make
-CMakeFiles/RayTracing.dir/main.cpp.o: /Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code/main.cpp
+CMakeFiles/RayTracing.dir/main.cpp.o: /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment6/Code/main.cpp
 CMakeFiles/RayTracing.dir/main.cpp.o: CMakeFiles/RayTracing.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/RayTracing.dir/main.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/RayTracing.dir/main.cpp.o -MF CMakeFiles/RayTracing.dir/main.cpp.o.d -o CMakeFiles/RayTracing.dir/main.cpp.o -c /Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment6/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/RayTracing.dir/main.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/RayTracing.dir/main.cpp.o -MF CMakeFiles/RayTracing.dir/main.cpp.o.d -o CMakeFiles/RayTracing.dir/main.cpp.o -c /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment6/Code/main.cpp
 
 CMakeFiles/RayTracing.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/RayTracing.dir/main.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code/main.cpp > CMakeFiles/RayTracing.dir/main.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment6/Code/main.cpp > CMakeFiles/RayTracing.dir/main.cpp.i
 
 CMakeFiles/RayTracing.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/RayTracing.dir/main.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code/main.cpp -o CMakeFiles/RayTracing.dir/main.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment6/Code/main.cpp -o CMakeFiles/RayTracing.dir/main.cpp.s
 
 CMakeFiles/RayTracing.dir/Vector.cpp.o: CMakeFiles/RayTracing.dir/flags.make
-CMakeFiles/RayTracing.dir/Vector.cpp.o: /Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code/Vector.cpp
+CMakeFiles/RayTracing.dir/Vector.cpp.o: /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment6/Code/Vector.cpp
 CMakeFiles/RayTracing.dir/Vector.cpp.o: CMakeFiles/RayTracing.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/RayTracing.dir/Vector.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/RayTracing.dir/Vector.cpp.o -MF CMakeFiles/RayTracing.dir/Vector.cpp.o.d -o CMakeFiles/RayTracing.dir/Vector.cpp.o -c /Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code/Vector.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment6/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/RayTracing.dir/Vector.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/RayTracing.dir/Vector.cpp.o -MF CMakeFiles/RayTracing.dir/Vector.cpp.o.d -o CMakeFiles/RayTracing.dir/Vector.cpp.o -c /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment6/Code/Vector.cpp
 
 CMakeFiles/RayTracing.dir/Vector.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/RayTracing.dir/Vector.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code/Vector.cpp > CMakeFiles/RayTracing.dir/Vector.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment6/Code/Vector.cpp > CMakeFiles/RayTracing.dir/Vector.cpp.i
 
 CMakeFiles/RayTracing.dir/Vector.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/RayTracing.dir/Vector.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code/Vector.cpp -o CMakeFiles/RayTracing.dir/Vector.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment6/Code/Vector.cpp -o CMakeFiles/RayTracing.dir/Vector.cpp.s
 
 CMakeFiles/RayTracing.dir/Scene.cpp.o: CMakeFiles/RayTracing.dir/flags.make
-CMakeFiles/RayTracing.dir/Scene.cpp.o: /Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code/Scene.cpp
+CMakeFiles/RayTracing.dir/Scene.cpp.o: /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment6/Code/Scene.cpp
 CMakeFiles/RayTracing.dir/Scene.cpp.o: CMakeFiles/RayTracing.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/RayTracing.dir/Scene.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/RayTracing.dir/Scene.cpp.o -MF CMakeFiles/RayTracing.dir/Scene.cpp.o.d -o CMakeFiles/RayTracing.dir/Scene.cpp.o -c /Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code/Scene.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment6/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/RayTracing.dir/Scene.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/RayTracing.dir/Scene.cpp.o -MF CMakeFiles/RayTracing.dir/Scene.cpp.o.d -o CMakeFiles/RayTracing.dir/Scene.cpp.o -c /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment6/Code/Scene.cpp
 
 CMakeFiles/RayTracing.dir/Scene.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/RayTracing.dir/Scene.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code/Scene.cpp > CMakeFiles/RayTracing.dir/Scene.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment6/Code/Scene.cpp > CMakeFiles/RayTracing.dir/Scene.cpp.i
 
 CMakeFiles/RayTracing.dir/Scene.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/RayTracing.dir/Scene.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code/Scene.cpp -o CMakeFiles/RayTracing.dir/Scene.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment6/Code/Scene.cpp -o CMakeFiles/RayTracing.dir/Scene.cpp.s
 
 CMakeFiles/RayTracing.dir/BVH.cpp.o: CMakeFiles/RayTracing.dir/flags.make
-CMakeFiles/RayTracing.dir/BVH.cpp.o: /Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code/BVH.cpp
+CMakeFiles/RayTracing.dir/BVH.cpp.o: /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment6/Code/BVH.cpp
 CMakeFiles/RayTracing.dir/BVH.cpp.o: CMakeFiles/RayTracing.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/RayTracing.dir/BVH.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/RayTracing.dir/BVH.cpp.o -MF CMakeFiles/RayTracing.dir/BVH.cpp.o.d -o CMakeFiles/RayTracing.dir/BVH.cpp.o -c /Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code/BVH.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment6/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/RayTracing.dir/BVH.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/RayTracing.dir/BVH.cpp.o -MF CMakeFiles/RayTracing.dir/BVH.cpp.o.d -o CMakeFiles/RayTracing.dir/BVH.cpp.o -c /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment6/Code/BVH.cpp
 
 CMakeFiles/RayTracing.dir/BVH.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/RayTracing.dir/BVH.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code/BVH.cpp > CMakeFiles/RayTracing.dir/BVH.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment6/Code/BVH.cpp > CMakeFiles/RayTracing.dir/BVH.cpp.i
 
 CMakeFiles/RayTracing.dir/BVH.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/RayTracing.dir/BVH.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code/BVH.cpp -o CMakeFiles/RayTracing.dir/BVH.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment6/Code/BVH.cpp -o CMakeFiles/RayTracing.dir/BVH.cpp.s
 
 CMakeFiles/RayTracing.dir/Renderer.cpp.o: CMakeFiles/RayTracing.dir/flags.make
-CMakeFiles/RayTracing.dir/Renderer.cpp.o: /Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code/Renderer.cpp
+CMakeFiles/RayTracing.dir/Renderer.cpp.o: /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment6/Code/Renderer.cpp
 CMakeFiles/RayTracing.dir/Renderer.cpp.o: CMakeFiles/RayTracing.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/RayTracing.dir/Renderer.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/RayTracing.dir/Renderer.cpp.o -MF CMakeFiles/RayTracing.dir/Renderer.cpp.o.d -o CMakeFiles/RayTracing.dir/Renderer.cpp.o -c /Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code/Renderer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment6/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/RayTracing.dir/Renderer.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/RayTracing.dir/Renderer.cpp.o -MF CMakeFiles/RayTracing.dir/Renderer.cpp.o.d -o CMakeFiles/RayTracing.dir/Renderer.cpp.o -c /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment6/Code/Renderer.cpp
 
 CMakeFiles/RayTracing.dir/Renderer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/RayTracing.dir/Renderer.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code/Renderer.cpp > CMakeFiles/RayTracing.dir/Renderer.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment6/Code/Renderer.cpp > CMakeFiles/RayTracing.dir/Renderer.cpp.i
 
 CMakeFiles/RayTracing.dir/Renderer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/RayTracing.dir/Renderer.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code/Renderer.cpp -o CMakeFiles/RayTracing.dir/Renderer.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment6/Code/Renderer.cpp -o CMakeFiles/RayTracing.dir/Renderer.cpp.s
 
 # Object files for target RayTracing
 RayTracing_OBJECTS = \
@@ -160,7 +160,7 @@ RayTracing: CMakeFiles/RayTracing.dir/BVH.cpp.o
 RayTracing: CMakeFiles/RayTracing.dir/Renderer.cpp.o
 RayTracing: CMakeFiles/RayTracing.dir/build.make
 RayTracing: CMakeFiles/RayTracing.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable RayTracing"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment6/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable RayTracing"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/RayTracing.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -172,6 +172,6 @@ CMakeFiles/RayTracing.dir/clean:
 .PHONY : CMakeFiles/RayTracing.dir/clean
 
 CMakeFiles/RayTracing.dir/depend:
-	cd /Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code /Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code /Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code/build /Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code/build /Users/mayohoshi/Library/CloudStorage/OneDrive-个人/RubbishProgram/Games101-Work/Assignment6/Code/build/CMakeFiles/RayTracing.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment6/Code/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment6/Code /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment6/Code /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment6/Code/build /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment6/Code/build /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment6/Code/build/CMakeFiles/RayTracing.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/RayTracing.dir/depend
 
