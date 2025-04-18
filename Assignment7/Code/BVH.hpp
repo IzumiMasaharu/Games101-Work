@@ -15,7 +15,7 @@
 #include "Intersection.hpp"
 #include "Vector.hpp"
 
-struct BVHBuildNode;
+struct SplitBuildNode;
 // BVHAccel Forward Declarations
 struct BVHPrimitiveInfo;
 
@@ -33,33 +33,33 @@ public:
     ~BVHAccel();
 
     Intersection Intersect(const Ray &ray) const;
-    Intersection getIntersection(BVHBuildNode* node, const Ray& ray)const;
+    Intersection getIntersection(SplitBuildNode* node, const Ray& ray)const;
     bool IntersectP(const Ray &ray) const;
-    BVHBuildNode* root;
+    SplitBuildNode* root;
 
     // BVHAccel Private Methods
-    BVHBuildNode* recursiveBuild(std::vector<Object*>objects);
+    SplitBuildNode* recursiveBuild(std::vector<Object*>objects);
 
     // BVHAccel Private Data
     const int maxPrimsInNode;
     const SplitMethod splitMethod;
     std::vector<Object*> primitives;
 
-    void getSample(BVHBuildNode* node, float p, Intersection &pos, float &pdf);
+    void getSample(SplitBuildNode* node, float p, Intersection &pos, float &pdf);
     void Sample(Intersection &pos, float &pdf);
 };
 
-struct BVHBuildNode {
+struct SplitBuildNode {
     Bounds3 bounds;
-    BVHBuildNode *left;
-    BVHBuildNode *right;
+    SplitBuildNode *left;
+    SplitBuildNode *right;
     Object* object;
     float area;
 
 public:
     int splitAxis=0, firstPrimOffset=0, nPrimitives=0;
     // BVHBuildNode Public Methods
-    BVHBuildNode(){
+    SplitBuildNode(){
         bounds = Bounds3();
         left = nullptr;right = nullptr;
         object = nullptr;

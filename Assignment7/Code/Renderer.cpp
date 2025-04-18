@@ -6,24 +6,52 @@
 #include "Scene.hpp"
 #include "Renderer.hpp"
 
-
 inline float deg2rad(const float& deg) { return deg * M_PI / 180.0; }
 
 const float EPSILON = 0.00001;
 
-// The main render function. This where we iterate over all pixels in the image,
-// generate primary rays and cast these rays into the scene. The content of the
-// framebuffer is saved to a file.
+// TODO MISSION
+void applyAntiAliasing(std::vector<Vector3f>& buffer, int width, int height) {
+    std::vector<Vector3f> newBuffer = buffer;
+    
+    // 应用3x3均值滤波
+    for (int y = 1; y < height - 1; ++y) {
+        for (int x = 1; x < width - 1; ++x) {
+            int index = y * width + x;
+            Vector3f sum(0.0f);
+            int count = 0;
+            
+            // 3x3 kernel
+            for (int dy = -1; dy <= 1; ++dy) {
+                for (int dx = -1; dx <= 1; ++dx) {
+                    int neighborIndex = (y + dy) * width + (x + dx);
+                    if (neighborIndex >= 0 && neighborIndex < width * height) {
+                        sum += buffer[neighborIndex];
+                        ++count;
+                    }
+                }
+            }
+            
+            // 计算平均值
+            newBuffer[index] = sum / count;
+        }
+    }
+    
+    buffer = newBuffer;
+    std::cout << "Anti-aliasing filter applied to current render pass.\n";
+}
+
+// TODO MISSION
 void Renderer::Render(const Scene& scene)
 {
     std::vector<Vector3f> framebuffer(scene.width * scene.height);
     float scale = tan(deg2rad(scene.fov * 0.5));
     float imageAspectRatio = scene.width / (float)scene.height;
     Vector3f eye_pos(278, 273, -800);
-    int spp = 256; // Samples per pixel
+    int spp = 128; // Samples per pixel
     
     // 添加多次渲染的参数
-    int num_renders = 16; // 渲染次数
+    int num_renders = 32; // 渲染次数
     std::cout << "SPP per render: " << spp << "\n";
     std::cout << "Number of renders: " << num_renders << "\n";
     std::cout << "Total effective SPP: " << spp * num_renders << "\n";
@@ -70,14 +98,18 @@ void Renderer::Render(const Scene& scene)
             thread.join();
         }
         
+        std::vector<Vector3f> beforebuffer = framebuffer;
+        // 应用反锯齿滤波处理
+        applyAntiAliasing(framebuffer, scene.width, scene.height);
+        
         // 将当前渲染结果添加到累积缓冲区
-        for (size_t i = 0; i < framebuffer.size(); ++i) {
+        for (size_t i = 0; i < framebuffer.size(); ++i) 
             accumBuffer[i] += framebuffer[i];
-        }
         
         // 保存每次的中间渲染结果
-        if (num_renders > 1) {
-            std::string filename = "render_pass_" + std::to_string(render_idx + 1) + ".ppm";
+        if (num_renders > 1) 
+        {
+            std::string filename = "./Diffuse-WithAfter/render_pass_" + std::to_string(render_idx + 1) + ".ppm";
             FILE* fp = fopen(filename.c_str(), "wb");
             (void)fprintf(fp, "P6\n%d %d\n255\n", scene.width, scene.height);
             for (auto i = 0; i < scene.height * scene.width; ++i) {
@@ -92,12 +124,11 @@ void Renderer::Render(const Scene& scene)
     }
     
     // 计算最终的平均值
-    for (size_t i = 0; i < accumBuffer.size(); ++i) {
+    for (size_t i = 0; i < accumBuffer.size(); ++i) 
         accumBuffer[i] = accumBuffer[i] / num_renders;
-    }
 
     // 保存最终的平均帧缓冲区到文件
-    FILE* fp = fopen("binary.ppm", "wb");
+    FILE* fp = fopen("./Diffuse-WithAfter/binary.ppm", "wb");
     (void)fprintf(fp, "P6\n%d %d\n255\n", scene.width, scene.height);
     for (auto i = 0; i < scene.height * scene.width; ++i) {
         static unsigned char color[3];

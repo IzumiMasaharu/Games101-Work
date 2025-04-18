@@ -229,6 +229,7 @@ inline bool Triangle::intersect(const Ray& ray, float& tnear,
 
 inline Bounds3 Triangle::getBounds() { return Union(Bounds3(v0, v1), v2); }
 
+// TODO MISSION
 inline Intersection Triangle::getIntersection(Ray ray)
 {
     Intersection inter;

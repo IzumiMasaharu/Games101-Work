@@ -25,9 +25,9 @@ BVHAccel::BVHAccel(std::vector<Object*> p, int maxPrimsInNode,
         hrs, mins, secs);
 }
 
-BVHBuildNode* BVHAccel::recursiveBuild(std::vector<Object*> objects)
+SplitBuildNode* BVHAccel::recursiveBuild(std::vector<Object*> objects)
 {
-    BVHBuildNode* node = new BVHBuildNode();
+    SplitBuildNode* node = new SplitBuildNode();
 
     // Compute bounds of all primitives in BVH node
     Bounds3 bounds;
@@ -151,7 +151,7 @@ Intersection BVHAccel::Intersect(const Ray& ray) const
     return isect;
 }
 
-Intersection BVHAccel::getIntersection(BVHBuildNode* node, const Ray& ray) const
+Intersection BVHAccel::getIntersection(SplitBuildNode* node, const Ray& ray) const
 {
     // TODO Traverse the BVH to find intersection
     Intersection isect;

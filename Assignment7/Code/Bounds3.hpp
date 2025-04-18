@@ -88,7 +88,7 @@ class Bounds3
 };
 
 
-
+// TODO MISSION
 inline bool Bounds3::IntersectP(const Ray& ray) const
 {
     // invDir: ray direction(x,y,z), invDir=(1.0/x,1.0/y,1.0/z), use this because Multiply is faster that Division

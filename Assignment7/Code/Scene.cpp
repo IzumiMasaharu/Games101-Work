@@ -3,7 +3,7 @@
 
 void Scene::buildBVH() {
     printf(" - Generating BVH...\n\n");
-    this->bvh = new BVHAccel(objects, 1, BVHAccel::SplitMethod::NAIVE);
+    this->bvh = new BVHAccel(objects, 1, BVHAccel::SplitMethod::SAH);
 }
 
 Intersection Scene::intersect(const Ray &ray) const
@@ -51,10 +51,10 @@ bool Scene::trace(
     return (*hitObject != nullptr);
 }
 
+// TODO MISSION
 // Implementation of Path Tracing
 Vector3f Scene::castRay(const Ray &ray, int depth) const
 {
-    // TO DO Implement Path Tracing Algorithm here
     Intersection intersection = intersect(ray);
     if (!intersection.happened)
         return backgroundColor;
