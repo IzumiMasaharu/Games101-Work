@@ -1,5 +1,5 @@
 CMakeFiles/RayTracing.dir/Renderer.cpp.o: \
-  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/Code/Renderer.cpp \
+  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/code/Renderer.cpp \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/fstream \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/__algorithm/max.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/__algorithm/comp.h \
@@ -826,11 +826,11 @@ CMakeFiles/RayTracing.dir/Renderer.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/__thread/this_thread.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/chrono \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/forward_list \
-  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/Code/Scene.hpp \
-  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/Code/Vector.hpp \
+  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/code/Scene.hpp \
+  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/code/Vector.hpp \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/iostream \
-  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/Code/Object.hpp \
-  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/Code/global.hpp \
+  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/code/Object.hpp \
+  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/code/global.hpp \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/random \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/__random/bernoulli_distribution.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/__random/uniform_real_distribution.h \
@@ -882,11 +882,10 @@ CMakeFiles/RayTracing.dir/Renderer.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/__random/student_t_distribution.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/__random/uniform_random_bit_generator.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/__random/weibull_distribution.h \
-  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/Code/Bounds3.hpp \
-  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/Code/Ray.hpp \
-  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/Code/Intersection.hpp \
-  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/Code/Material.hpp \
-  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/Code/Light.hpp \
-  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/Code/AreaLight.hpp \
-  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/Code/BVH.hpp \
-  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/Code/Renderer.hpp
+  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/code/Bounds3.hpp \
+  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/code/Ray.hpp \
+  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/code/Intersection.hpp \
+  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/code/Material.hpp \
+  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/code/Light.hpp \
+  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/code/BVH.hpp \
+  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/code/Renderer.hpp

@@ -5,8 +5,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/RayTracing.dir/Renderer.cpp.o.d"
   "CMakeFiles/RayTracing.dir/Scene.cpp.o"
   "CMakeFiles/RayTracing.dir/Scene.cpp.o.d"
-  "CMakeFiles/RayTracing.dir/Vector.cpp.o"
-  "CMakeFiles/RayTracing.dir/Vector.cpp.o.d"
   "CMakeFiles/RayTracing.dir/main.cpp.o"
   "CMakeFiles/RayTracing.dir/main.cpp.o.d"
   "RayTracing"
