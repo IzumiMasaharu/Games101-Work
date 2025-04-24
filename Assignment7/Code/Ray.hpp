@@ -6,7 +6,7 @@
 #define RAYTRACING_RAY_H
 #include "Vector.hpp"
 struct Ray{
-    //Destination = origin + t*direction
+    // Destination = origin + t*direction
     Vector3f origin;
     Vector3f direction, direction_inv;
     double t;//transportation time,

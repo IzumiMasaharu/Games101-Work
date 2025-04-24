@@ -55,7 +55,9 @@ bool Scene::trace(
 // Implementation of Path Tracing
 Vector3f Scene::castRay(const Ray &ray, int depth) const
 {
+    //求交
     Intersection intersection = intersect(ray);
+
     if (!intersection.happened)
         return backgroundColor;
     if(intersection.m->hasEmission())
@@ -63,7 +65,8 @@ Vector3f Scene::castRay(const Ray &ray, int depth) const
 
     intersection.normal = normalize(intersection.normal);
 
-    float pdfLight = 0;
+    // 对光源采样
+    float pdfLight = 0; // 概率密度
     Intersection lightSamplePos;
     sampleLight(lightSamplePos, pdfLight);
     lightSamplePos.normal = normalize(lightSamplePos.normal);
@@ -72,6 +75,7 @@ Vector3f Scene::castRay(const Ray &ray, int depth) const
     Ray lightRay(intersection.coords, normalize(lightDir));
     Intersection lightIntersection = intersect(lightRay);
 
+    // 前置判断遮挡 避免边界噪音
     if (lightIntersection.happened && lightIntersection.m->hasEmission()) 
     {
         float lightDistance = lightDir.norm();
@@ -81,12 +85,15 @@ Vector3f Scene::castRay(const Ray &ray, int depth) const
         if (cosIntersectionTheta > 0 && cosLightTheta > 0) 
         {
             Vector3f brdf = intersection.m->eval(ray.direction,lightDir, intersection.normal);
+            // 蒙特卡洛
             intersection.emit = lightSamplePos.emit * brdf * cosIntersectionTheta * cosLightTheta / (lightDistance * lightDistance) / pdfLight;
         }
     }
 
+    // Russian Roulette
     float P_RR = get_random_float();
     if (P_RR < RussianRoulette) {
+        // 下一轮间接光照
         Vector3f newDir = intersection.m->sample(ray.direction, intersection.normal).normalized();
         
         Ray newRay(intersection.coords, newDir);
@@ -94,10 +101,11 @@ Vector3f Scene::castRay(const Ray &ray, int depth) const
         float pdf = intersection.m->pdf(ray.direction, newDir, intersection.normal);
         if (pdf>0.01 && newIntersection.happened && !newIntersection.m->hasEmission()) 
         {
+            // 计算新的光照
             Vector3f newBrdf = intersection.m->eval(ray.direction, newDir, intersection.normal);
             float cosIntersectionTheta = dotProduct(intersection.normal, newDir);
             Vector3f indirectLight = castRay(newRay, depth + 1) * newBrdf * cosIntersectionTheta / pdf;
-            intersection.emit += indirectLight / RussianRoulette;
+            intersection.emit += indirectLight / RussianRoulette; // 满足数学期望为全局光照
         }
     }
 

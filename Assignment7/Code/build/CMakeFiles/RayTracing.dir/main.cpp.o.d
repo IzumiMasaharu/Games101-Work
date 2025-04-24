@@ -1,7 +1,7 @@
 CMakeFiles/RayTracing.dir/main.cpp.o: \
-  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/code/main.cpp \
-  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/code/Renderer.hpp \
-  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/code/Scene.hpp \
+  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/Code/main.cpp \
+  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/Code/Renderer.hpp \
+  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/Code/Scene.hpp \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/vector \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/__algorithm/copy.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/__algorithm/copy_move_common.h \
@@ -755,7 +755,7 @@ CMakeFiles/RayTracing.dir/main.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/_types/_nl_item.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/__locale_dir/locale_base_api/bsd_locale_defaults.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/cstdarg \
-  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/code/Vector.hpp \
+  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/Code/Vector.hpp \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/iostream \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/istream \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/__ostream/basic_ostream.h \
@@ -796,8 +796,8 @@ CMakeFiles/RayTracing.dir/main.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/__fwd/stack.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/print \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/unistd.h \
-  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/code/Object.hpp \
-  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/code/global.hpp \
+  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/Code/Object.hpp \
+  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/Code/global.hpp \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/random \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/__random/bernoulli_distribution.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/__random/uniform_real_distribution.h \
@@ -849,14 +849,14 @@ CMakeFiles/RayTracing.dir/main.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/__random/student_t_distribution.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/__random/uniform_random_bit_generator.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/__random/weibull_distribution.h \
-  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/code/Bounds3.hpp \
-  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/code/Ray.hpp \
-  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/code/Intersection.hpp \
-  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/code/Material.hpp \
-  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/code/Light.hpp \
-  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/code/BVH.hpp \
-  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/code/Triangle.hpp \
-  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/code/OBJ_Loader.hpp \
+  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/Code/Bounds3.hpp \
+  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/Code/Ray.hpp \
+  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/Code/Intersection.hpp \
+  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/Code/Material.hpp \
+  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/Code/Light.hpp \
+  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/Code/BVH.hpp \
+  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/Code/Triangle.hpp \
+  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/Code/OBJ_Loader.hpp \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/fstream \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/filesystem \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/__filesystem/copy_options.h \
@@ -877,10 +877,11 @@ CMakeFiles/RayTracing.dir/main.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/__filesystem/path_iterator.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/__filesystem/recursive_directory_iterator.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/__filesystem/u8path.h \
+  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/Code/Matrix.hpp \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/cassert \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/assert.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/_assert.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/_static_assert.h \
-  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/code/Sphere.hpp \
+  /Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/Code/Sphere.hpp \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/chrono \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/forward_list

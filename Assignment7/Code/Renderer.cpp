@@ -13,17 +13,16 @@ const float EPSILON = 0.00001;
 // TODO MISSION
 void applyAntiAliasing(std::vector<Vector3f>& buffer, int width, int height) {
     std::vector<Vector3f> newBuffer = buffer;
-    
-    // 应用5x5均值滤波
-    for (int y = 2; y < height - 2; ++y) {
-        for (int x = 2; x < width - 2; ++x) {
+
+    for (int y = 1; y < height - 1; ++y) {
+        for (int x = 1; x < width - 1; ++x) {
             int index = y * width + x;
             Vector3f sum(0.0f);
             int count = 0;
             
-            // 5x5 kernel
-            for (int dy = -2; dy <= 2; ++dy) {
-                for (int dx = -2; dx <= 2; ++dx) {
+            // 3x3 kernel
+            for (int dy = -1; dy <= 1; ++dy) {
+                for (int dx = -1; dx <= 1; ++dx) {
                     int neighborIndex = (y + dy) * width + (x + dx);
                     if (neighborIndex >= 0 && neighborIndex < width * height) {
                         sum += buffer[neighborIndex];
@@ -38,7 +37,6 @@ void applyAntiAliasing(std::vector<Vector3f>& buffer, int width, int height) {
     }
     
     buffer = newBuffer;
-    std::cout << "Anti-aliasing filter (5x5) applied to current render pass.\n";
 }
 // TODO MISSION
 void Renderer::Render(const Scene& scene)
@@ -47,10 +45,10 @@ void Renderer::Render(const Scene& scene)
     float scale = tan(deg2rad(scene.fov * 0.5));
     float imageAspectRatio = scene.width / (float)scene.height;
     Vector3f eye_pos(278, 273, -800);
-    int spp = 128; // Samples per pixel
+    int spp = 256; // Samples per pixel
     
     // 添加多次渲染的参数
-    int num_renders = 16; // 渲染次数
+    int num_renders = 8; // 渲染次数
     std::cout << "SPP per render: " << spp << "\n";
     std::cout << "Number of renders: " << num_renders << "\n";
     std::cout << "Total effective SPP: " << spp * num_renders << "\n";
@@ -98,8 +96,8 @@ void Renderer::Render(const Scene& scene)
         }
         
         // 应用反锯齿滤波处理
-        std::vector<Vector3f> beforeBuffer = framebuffer;
-        applyAntiAliasing(framebuffer, scene.width, scene.height);
+        // std::vector<Vector3f> beforeBuffer = framebuffer;
+        // applyAntiAliasing(framebuffer, scene.width, scene.height);
         
         // 将当前渲染结果添加到累积缓冲区
         for (size_t i = 0; i < framebuffer.size(); ++i) 
@@ -108,7 +106,7 @@ void Renderer::Render(const Scene& scene)
         // 保存每次的中间渲染结果
         if (num_renders > 1) 
         {
-            std::string filename = "./Diffuse-WithAfter/render_pass_" + std::to_string(render_idx + 1) + ".ppm";
+            std::string filename = "./Microfacet-Lambert/render_pass_" + std::to_string(render_idx + 1) + ".ppm";
             FILE* fp = fopen(filename.c_str(), "wb");
             (void)fprintf(fp, "P6\n%d %d\n255\n", scene.width, scene.height);
             for (auto i = 0; i < scene.height * scene.width; ++i) {
@@ -119,18 +117,18 @@ void Renderer::Render(const Scene& scene)
                 fwrite(color, 1, 3, fp);
             }
             fclose(fp);
-
-            filename = "./Diffuse-WithAfter/render_pass_before_" + std::to_string(render_idx + 1) + ".ppm";
-            fp = fopen(filename.c_str(), "wb");
-            (void)fprintf(fp, "P6\n%d %d\n255\n", scene.width, scene.height);
-            for (auto i = 0; i < scene.height * scene.width; ++i) {
-                static unsigned char color[3];
-                color[0] = (unsigned char)(255 * std::pow(clamp(0, 1, beforeBuffer[i].x), 0.6f));
-                color[1] = (unsigned char)(255 * std::pow(clamp(0, 1, beforeBuffer[i].y), 0.6f));
-                color[2] = (unsigned char)(255 * std::pow(clamp(0, 1, beforeBuffer[i].z), 0.6f));
-                fwrite(color, 1, 3, fp);
-            }
-            fclose(fp);
+            //Diffuse-WithAfter
+            // filename = "./render_pass_before_" + std::to_string(render_idx + 1) + ".ppm";
+            // fp = fopen(filename.c_str(), "wb");
+            // (void)fprintf(fp, "P6\n%d %d\n255\n", scene.width, scene.height);
+            // for (auto i = 0; i < scene.height * scene.width; ++i) {
+            //     static unsigned char color[3];
+            //     color[0] = (unsigned char)(255 * std::pow(clamp(0, 1, beforeBuffer[i].x), 0.6f));
+            //     color[1] = (unsigned char)(255 * std::pow(clamp(0, 1, beforeBuffer[i].y), 0.6f));
+            //     color[2] = (unsigned char)(255 * std::pow(clamp(0, 1, beforeBuffer[i].z), 0.6f));
+            //     fwrite(color, 1, 3, fp);
+            // }
+            // fclose(fp);
         }
     }
     
@@ -139,7 +137,7 @@ void Renderer::Render(const Scene& scene)
         accumBuffer[i] = accumBuffer[i] / num_renders;
 
     // 保存最终的平均帧缓冲区到文件
-    FILE* fp = fopen("./Diffuse-WithAfter/binary.ppm", "wb");
+    FILE* fp = fopen("./Microfacet-Lambert/binary.ppm", "wb");
     (void)fprintf(fp, "P6\n%d %d\n255\n", scene.width, scene.height);
     for (auto i = 0; i < scene.height * scene.width; ++i) {
         static unsigned char color[3];

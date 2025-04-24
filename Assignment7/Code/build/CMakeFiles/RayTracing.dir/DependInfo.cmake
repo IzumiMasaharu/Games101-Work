@@ -8,10 +8,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/code/BVH.cpp" "CMakeFiles/RayTracing.dir/BVH.cpp.o" "gcc" "CMakeFiles/RayTracing.dir/BVH.cpp.o.d"
-  "/Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/code/Renderer.cpp" "CMakeFiles/RayTracing.dir/Renderer.cpp.o" "gcc" "CMakeFiles/RayTracing.dir/Renderer.cpp.o.d"
-  "/Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/code/Scene.cpp" "CMakeFiles/RayTracing.dir/Scene.cpp.o" "gcc" "CMakeFiles/RayTracing.dir/Scene.cpp.o.d"
-  "/Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/code/main.cpp" "CMakeFiles/RayTracing.dir/main.cpp.o" "gcc" "CMakeFiles/RayTracing.dir/main.cpp.o.d"
+  "/Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/Code/BVH.cpp" "CMakeFiles/RayTracing.dir/BVH.cpp.o" "gcc" "CMakeFiles/RayTracing.dir/BVH.cpp.o.d"
+  "/Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/Code/Renderer.cpp" "CMakeFiles/RayTracing.dir/Renderer.cpp.o" "gcc" "CMakeFiles/RayTracing.dir/Renderer.cpp.o.d"
+  "/Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/Code/Scene.cpp" "CMakeFiles/RayTracing.dir/Scene.cpp.o" "gcc" "CMakeFiles/RayTracing.dir/Scene.cpp.o.d"
+  "/Users/mayohoshi/Library/CloudStorage/OneDrive-個人用/RubbishProgram/Games101-Work/Assignment7/Code/main.cpp" "CMakeFiles/RayTracing.dir/main.cpp.o" "gcc" "CMakeFiles/RayTracing.dir/main.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

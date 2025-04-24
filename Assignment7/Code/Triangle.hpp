@@ -6,6 +6,7 @@
 #include "OBJ_Loader.hpp"
 #include "Object.hpp"
 #include "Triangle.hpp"
+#include "Matrix.hpp"
 #include <cassert>
 #include <array>
 
@@ -67,8 +68,6 @@ public:
                               Vector3f& N, Vector2f& st) const override
     {
         N = normal;
-        //        throw std::runtime_error("triangle::getSurfaceProperties not
-        //        implemented.");
     }
     Vector3f evalDiffuseColor(const Vector2f&) const override;
     Bounds3 getBounds() override;
@@ -89,40 +88,51 @@ public:
 class MeshTriangle : public Object
 {
 public:
-    MeshTriangle(const std::string& filename, Material *mt = new Material())
+    // TODO MISSION
+    MeshTriangle(const std::string& filename, Material *mt = new Material(), const Matrix4f& modelMatrix = Matrix4f::Identity())
     {
         objl::Loader loader;
         loader.LoadFile(filename);
         area = 0;
         m = mt;
-        assert(loader.LoadedMeshes.size() == 1);
-        auto mesh = loader.LoadedMeshes[0];
 
         Vector3f min_vert = Vector3f{std::numeric_limits<float>::infinity(),
-                                     std::numeric_limits<float>::infinity(),
-                                     std::numeric_limits<float>::infinity()};
+                                 std::numeric_limits<float>::infinity(),
+                                 std::numeric_limits<float>::infinity()};
         Vector3f max_vert = Vector3f{-std::numeric_limits<float>::infinity(),
-                                     -std::numeric_limits<float>::infinity(),
-                                     -std::numeric_limits<float>::infinity()};
-        for (int i = 0; i < mesh.Vertices.size(); i += 3) {
-            std::array<Vector3f, 3> face_vertices;
+                                 -std::numeric_limits<float>::infinity(),
+                                 -std::numeric_limits<float>::infinity()};
+        
+        // 处理所有网格                         
+        for (auto& mesh : loader.LoadedMeshes) {
+            for (int i = 0; i < mesh.Vertices.size(); i += 3) {
+                std::array<Vector3f, 3> face_vertices;
 
-            for (int j = 0; j < 3; j++) {
-                auto vert = Vector3f(mesh.Vertices[i + j].Position.X,
+                // 确保有足够的顶点
+                if (i + 2 >= mesh.Vertices.size()) 
+                    continue;
+
+                for (int j = 0; j < 3; j++) {
+                    // 获取原始顶点
+                    Vector3f orig_vert(mesh.Vertices[i + j].Position.X,
                                      mesh.Vertices[i + j].Position.Y,
                                      mesh.Vertices[i + j].Position.Z);
-                face_vertices[j] = vert;
+                    
+                    // 应用变换矩阵
+                    Vector3f vert = modelMatrix * orig_vert;
 
-                min_vert = Vector3f(std::min(min_vert.x, vert.x),
-                                    std::min(min_vert.y, vert.y),
-                                    std::min(min_vert.z, vert.z));
-                max_vert = Vector3f(std::max(max_vert.x, vert.x),
-                                    std::max(max_vert.y, vert.y),
-                                    std::max(max_vert.z, vert.z));
+                    face_vertices[j] = vert;
+                    
+                    min_vert = Vector3f(std::min(min_vert.x, vert.x),
+                                   std::min(min_vert.y, vert.y),
+                                   std::min(min_vert.z, vert.z));
+                    max_vert = Vector3f(std::max(max_vert.x, vert.x),
+                                   std::max(max_vert.y, vert.y),
+                                   std::max(max_vert.z, vert.z));
+                }
+
+                triangles.emplace_back(face_vertices[0], face_vertices[1], face_vertices[2], mt);
             }
-
-            triangles.emplace_back(face_vertices[0], face_vertices[1],
-                                   face_vertices[2], mt);
         }
 
         bounding_box = Bounds3(min_vert, max_vert);
