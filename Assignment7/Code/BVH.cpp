@@ -40,7 +40,6 @@ SplitBuildNode* BVHAccel::recursiveBuild(std::vector<Object*> objects)
         node->object = objects[0];
         node->left = nullptr;
         node->right = nullptr;
-        node->area = objects[0]->getArea();
         return node;
     }
     else if (objects.size() == 2) {
@@ -48,53 +47,100 @@ SplitBuildNode* BVHAccel::recursiveBuild(std::vector<Object*> objects)
         node->right = recursiveBuild(std::vector{objects[1]});
 
         node->bounds = Union(node->left->bounds, node->right->bounds);
-        node->area = node->left->area + node->right->area;
         return node;
     }
-    else {
+    else 
+    {
         Bounds3 centroidBounds;
         for (int i = 0; i < objects.size(); ++i)
-            centroidBounds =
-                Union(centroidBounds, objects[i]->getBounds().Centroid());
+            centroidBounds = Union(centroidBounds, objects[i]->getBounds().Centroid());
         int dim = centroidBounds.maxExtent();
-        switch (dim) {
+        switch (dim) 
+        {
         case 0:
             std::sort(objects.begin(), objects.end(), [](auto f1, auto f2) {
-                return f1->getBounds().Centroid().x <
-                       f2->getBounds().Centroid().x;
+                return f1->getBounds().Centroid().x < f2->getBounds().Centroid().x;
             });
             break;
         case 1:
             std::sort(objects.begin(), objects.end(), [](auto f1, auto f2) {
-                return f1->getBounds().Centroid().y <
-                       f2->getBounds().Centroid().y;
+                return f1->getBounds().Centroid().y < f2->getBounds().Centroid().y;
             });
             break;
         case 2:
             std::sort(objects.begin(), objects.end(), [](auto f1, auto f2) {
-                return f1->getBounds().Centroid().z <
-                       f2->getBounds().Centroid().z;
+                return f1->getBounds().Centroid().z < f2->getBounds().Centroid().z;
             });
             break;
         }
 
-        auto beginning = objects.begin();
-        auto middling = objects.begin() + (objects.size() / 2);
-        auto ending = objects.end();
+        switch(splitMethod) 
+        {
+            case SplitMethod::NAIVE:
+            {
+                auto beginning = objects.begin();
+                auto middling = objects.begin() + (objects.size() / 2);
+                auto ending = objects.end();
+            
+                auto leftshapes = std::vector<Object*>(beginning, middling);
+                auto rightshapes = std::vector<Object*>(middling, ending);
+            
+                assert(objects.size() == (leftshapes.size() + rightshapes.size()));
+            
+                node->left = recursiveBuild(leftshapes);
+                node->right = recursiveBuild(rightshapes);
+            
+                node->bounds = Union(node->left->bounds, node->right->bounds);
 
-        auto leftshapes = std::vector<Object*>(beginning, middling);
-        auto rightshapes = std::vector<Object*>(middling, ending);
+                break;
+            }   
+            case SplitMethod::SAH:
+            {
+                float SN = centroidBounds.SurfaceArea();
+                int B = 10;
+                int mincostIndex = 0;
+                float minCost = std::numeric_limits<float>::infinity(); //最小花费
 
-        assert(objects.size() == (leftshapes.size() + rightshapes.size()));
+                for (int i = 1; i < B; i++)
+                {
+                    auto beginning = objects.begin();
+                    auto middling = objects.begin() + (objects.size() * i / B);
+                    auto ending = objects.end();
+                    auto leftshapes = std::vector<Object*>(beginning, middling);
+                    auto rightshapes = std::vector<Object*>(middling, ending);
+                    //求左右包围盒:
+                    Bounds3 leftBounds, rightBounds;
+                    for (int k = 0; k < leftshapes.size(); ++k)
+                        leftBounds = Union(leftBounds, leftshapes[k]->getBounds().Centroid());
+                    for (int k = 0; k < rightshapes.size(); ++k)
+                        rightBounds = Union(rightBounds, rightshapes[k]->getBounds().Centroid());
+                    float SA = leftBounds.SurfaceArea(); //SA
+                    float SB = rightBounds.SurfaceArea(); //SB
+                    float cost = 0.125 + (leftshapes.size() * SA + rightshapes.size() * SB) / SN; //计算花费
+                    if (cost < minCost) //如果花费更小，记录当前坐标值
+                    {
+                        minCost = cost;
+                        mincostIndex = i;
+                    }
+                }
+                //找到mincostIndex后的操作等同于BVH
+                auto beginning = objects.begin();
+                auto middling = objects.begin() + (objects.size() * mincostIndex / B);//划分点选为当前最优桶的位置
+                auto ending = objects.end();
+                auto leftshapes = std::vector<Object*>(beginning, middling); //数组切分
+                auto rightshapes = std::vector<Object*>(middling, ending);
 
-        node->left = recursiveBuild(leftshapes);
-        node->right = recursiveBuild(rightshapes);
+                assert(objects.size() == (leftshapes.size() + rightshapes.size()));
 
-        node->bounds = Union(node->left->bounds, node->right->bounds);
-        node->area = node->left->area + node->right->area;
+                node->left = recursiveBuild(leftshapes); //左右开始递归
+                node->right = recursiveBuild(rightshapes);
+                node->bounds = Union(node->left->bounds, node->right->bounds);//返回pMin pMax构成大包围盒
+                break;
+            }
+        }
+
+        return node;
     }
-
-    return node;
 }
 
 // TODO MISSION
@@ -107,7 +153,7 @@ Intersection BVHAccel::Intersect(const Ray& ray) const
     return isect;
 }
 
-
+// TODO MISSION
 Intersection BVHAccel::getIntersection(SplitBuildNode* node, const Ray& ray) const
 {
     // TODO Traverse the BVH to find intersection
@@ -135,7 +181,6 @@ Intersection BVHAccel::getIntersection(SplitBuildNode* node, const Ray& ray) con
     else
         return isect;
 }
-
 
 void BVHAccel::getSample(SplitBuildNode* node, float p, Intersection &pos, float &pdf){
     if(node->left == nullptr || node->right == nullptr){

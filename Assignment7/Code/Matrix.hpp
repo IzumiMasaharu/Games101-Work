@@ -4,9 +4,9 @@
 
 // TODO MISSION
 class Matrix4f {
-public:
+private:
     float m[4][4];
-
+public:
     Matrix4f() {
         for (int i = 0; i < 4; i++)
             for (int j = 0; j < 4; j++)

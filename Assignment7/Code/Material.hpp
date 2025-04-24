@@ -30,23 +30,27 @@ private:
         Vector3f c = a + b;
         return c.normalized();
     } 
+    // TODO MISSION
     float DisneyDiffuse(float NdotL, float NdotV, float HdotV,float roughness) {
         float Fd90 = 0.5f + 2.0f * roughness * HdotV * HdotV;
         float FdV = 1 + (Fd90 - 1) * std::pow( 1 - NdotV,5 );
 	    float FdL = 1 + (Fd90 - 1) * std::pow( 1 - NdotL,5 );
 	    return (1 / M_PI) * FdV * FdL;
     }
+    // TODO MISSION
     float D_GGX(float roughness, float NdotH) {
         float alpha2 = roughness * roughness;
         float cosTheta2 = NdotH * NdotH;
         float denom = (cosTheta2 * (alpha2 - 1.0f) + 1.0f);
         return alpha2 / (M_PI * denom * denom);
     }
+    // TODO MISSION
     float G_Smith(float roughness, float NdotV, float NdotL) {
         float G1 = G_Smith_GGX(NdotV, roughness);
         float G2 = G_Smith_GGX(NdotL, roughness);
         return G1 * G2;
     }
+    // TODO MISSION
     float G_Smith_GGX(float NdotV, float a)
     {
         float r = (a + 1.0);
@@ -57,6 +61,7 @@ private:
         
         return nom / denom;
     }
+    // TODO MISSION
     float Fresnel(const Vector3f &I, const Vector3f &N, const float &ior) const
     {
         float kr;
@@ -108,7 +113,6 @@ public:
     inline float pdf(const Vector3f &wi, const Vector3f &wo, const Vector3f &N);
     // given a ray, calculate the contribution of this ray
     inline Vector3f eval(const Vector3f &wi, const Vector3f &wo, const Vector3f &N);
-
 };
 
 Material::Material(MaterialType t, Vector3f e){
@@ -130,7 +134,6 @@ Material::Material(MaterialType t, Vector3f e, float ior, Vector3f Kd, Vector3f 
 }
 
 MaterialType Material::getType(){return m_type;}
-///Vector3f Material::getColor(){return m_color;}
 Vector3f Material::getEmission() {return m_emission;}
 bool Material::hasEmission() {
     if (m_emission.norm() > EPSILON) return true;
@@ -141,6 +144,7 @@ Vector3f Material::getColorAt(double u, double v) {
     return Vector3f();
 }
 
+// TODO MISSION
 Vector3f Material::sample(const Vector3f &wi, const Vector3f &N){
     switch(m_type){
         case DIFFUSE:
@@ -158,6 +162,7 @@ Vector3f Material::sample(const Vector3f &wi, const Vector3f &N){
     }
 }
 
+// TODO MISSION
 float Material::pdf(const Vector3f &wi, const Vector3f &wo, const Vector3f &N){
     switch(m_type){
         case DIFFUSE:

@@ -89,6 +89,4 @@ inline Vector3f crossProduct(const Vector3f &a, const Vector3f &b)
     );
 }
 
-
-
 #endif //RAYTRACING_VECTOR_H
